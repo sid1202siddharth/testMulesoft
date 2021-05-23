@@ -1,0 +1,70 @@
+<html>
+<title> JavaScript PHP SP API </title>
+<script>
+
+function btnGetPosts_Clicked(){
+
+	var divResult = document.getElementById("divResult");
+
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4){
+			if(this.status == 200) {
+				//Success. Display Result here
+				divResult.innerHTML = this.responseText;
+				//Convert to JSON Object
+				objResult = JSON.parse(this.responseText);
+			}
+			else {
+				//Error. Display Error Message here
+				divResult.innerHTML = this.responseText;
+			}
+		}
+	};
+
+	xhttp.open("POST", "/api.php/get_home_page_posts", true);
+	xhttp.send();
+
+}
+
+function btnPostCount_Clicked(){
+
+	var divResult = document.getElementById("divResult");
+	var txtUserId = document.getElementById("txtUserId");
+
+	//Build the JSON Data Object to Send to Server
+	var data = {};
+	data.user_id = txtUserId.value;
+	var params = new URLSearchParams(data);
+
+	//Create the Http Request
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4) {
+			if (this.status == 200) {
+				//Success. Display Result here
+				divResult.innerHTML = this.responseText;
+				//Convert to JSON Object
+				objResult = JSON.parse(this.responseText);
+			}
+			else {
+				//Error. Display Error Message here
+				divResult.innerHTML = this.responseText;
+			}
+		}
+	};
+
+	xhttp.open("POST", "/api.php/get_post_count_for_user", true);
+	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhttp.send(params);
+
+}
+
+</script>
+<body>
+	Enter User Id: <input id="txtUserId" type="text" id="user_id"> <br/><br/>
+	<input type="button" id="btnGetPosts" value="Get Home Page Posts" onclick="btnGetPosts_Clicked()"> &nbsp; &nbsp;
+	<input type="button" id="btnPostCount" value="Get Post Count For User" onclick="btnPostCount_Clicked()"> <br/><br/><br/>
+	<div id="divResult"></div>
+</body>
+</html>
