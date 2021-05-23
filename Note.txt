@@ -1,0 +1,7 @@
+Greathings 
+
+1.API in PHP, this is the main file (please consider this as my report )
+2.api.net this is done in Dotnet ( you may consider this too)
+3.clg PHP project this is my final year project, I am sending this just in good hopes as i thought this would let you my knowledge in PHP.
+4.Php(learning) this was my test and learning file just for reference 
+i used Xamp SQL Postman Netbeans and for Dotnet i used SQL server, visual studio.
