@@ -1,5 +1,0 @@
-Greathings 
-
-1.API in PHP, this is the main file (please consider this as my report )
-2.Php(learning) this was my test and learning file just for my reference 
-i used Xamp SQL Postman Netbeans.
